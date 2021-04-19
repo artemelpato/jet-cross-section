@@ -14,8 +14,7 @@ int main()
 
 	Pythia8::Pythia pythia;
 	pythia.readString("Beams:eCM = 7000.");
-	pythia.readString("HardQCD:all = on");
-	pythia.readString("PhaseSpace:pTHatMin = 20.");
+	pythia.readString("HardQCD:all = on"); pythia.readString("PhaseSpace:pTHatMin = 20.");
 
 	pythia.init();
 
@@ -40,14 +39,10 @@ int main()
 
 
 	std::cout <<   "        pt y phi" << std::endl;
-	  for (unsigned i = 0; i < jets.size(); i++) {
-			  std::cout << "jet " << i << ": "<< jets[i].pt() << " " 
-			  << jets[i].rap() << " " << jets[i].phi() << std::endl;
-			  std::vector<fastjet::PseudoJet> constituents = jets[i].constituents();
-			  for (unsigned j = 0; j < constituents.size(); j++) {
-				    std::cout << "    constituent " << j << "'s pt: " << constituents[j].pt()
-		   << std::endl;
-	    }
-	  }
+	for (unsigned i = 0; i < jets.size(); i++) 
+	{
+		std::cout << "jet " << i << ": "<< jets[i].pt() << " " 
+		<< jets[i].rap() << " " << jets[i].phi() << std::endl;
+	}
 }
 
